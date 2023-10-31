@@ -15,7 +15,14 @@ export class ProductsService {
   }
 
   async findOne(id: number) {
-    return this.databaseService.product.findUnique({ where: { id } });
+    return this.databaseService.product.findUnique({
+      where: { id },
+      include: {
+        description: true,
+        tags: true,
+        reviews: true,
+      },
+    });
   }
 
   update(id: number, updateProductDto: Prisma.ProductUpdateInput) {

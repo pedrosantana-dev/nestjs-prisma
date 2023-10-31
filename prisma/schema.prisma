@@ -19,7 +19,7 @@ model Product {
   price Float
   sale Boolean @default(false) 
   availibility Availibility
-  reviews Reviews[]
+  reviews Review[]
   tags Tag[]
   description Description?
 }
@@ -31,7 +31,7 @@ model Description {
   productId Int @unique
 }
 
-model Reviews {
+model Review {
   id Int @default(autoincrement()) @id
   title String
   content String
